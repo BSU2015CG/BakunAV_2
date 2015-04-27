@@ -251,19 +251,24 @@ public class Main {
 	}
 
 	private void luv2rgb() {
-        if (L <= 8)
-            y = (int) (Y * L * Math.pow(3.0 / 29.0, 3));
+		double u = U / 100.0; 
+        double v = V / 100.0;
+        double var_Y = (L + 16) / 116.0;
+        if (Math.pow(var_Y, 3) > 0.008856)
+            var_Y = Math.pow(var_Y, 3);
         else
-            y = (int) (Y * Math.pow((L + 16) / 116.0, 3));
+            var_Y = (var_Y - 16 / 116.0) / 7.787;
 
-        if (V == 0){
+        if (v == 0)
+        {
         	xyz2rgb();
-            return ;
+            return;
         }
-        x = (int) ((y * 9 * U) / (4 * V));
-        z = (int) (y * (12 - 3 * U - 20 * V) / (4 * V));
+        y = (int) (var_Y * Y);
+        x = (int) -((9 * y * u) / ((u - 4) * v - v * u));
+        z = (int) ((9 * y - 15 * v * y - v * x) / (3 * v));
         xyz2rgb();
-
+        return;
 	}
 
 	private void rgb2luv() {
