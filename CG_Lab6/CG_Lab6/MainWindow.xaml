@@ -1,0 +1,56 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="CG_Lab6.MainWindow"
+        Title="MainWindow" Height="600" Width="800">
+	<Grid x:Name="MainGrid">
+		<Canvas x:Name="canvas" HorizontalAlignment="Center" Height="549" VerticalAlignment="Center" Width="577" Margin="10,10,205,10" MouseMove="canvas_MouseMove" />
+		<Grid HorizontalAlignment="Right" Height="569" VerticalAlignment="Center" Width="200" Background="White">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="1*"/>
+			</Grid.RowDefinitions>
+			<GroupBox Header="Масштаб" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Height="95" Width="200">
+				<StackPanel HorizontalAlignment="Center" Height="64" VerticalAlignment="Center" Width="180" Margin="4,10,4,-1">
+					<Slider x:Name="xScaleSlider" HorizontalAlignment="Center" VerticalAlignment="Top" Width="99" Value="10" ValueChanged="ScaleSlider_ValueChanged" Maximum="20"/>
+					<Slider x:Name="yScaleSlider" HorizontalAlignment="Center" VerticalAlignment="Top" Width="99" Value="10" ValueChanged="ScaleSlider_ValueChanged" Maximum="20"/>
+					<Slider x:Name="zScaleSlider" HorizontalAlignment="Center" VerticalAlignment="Top" Width="99" Value="10" ValueChanged="ScaleSlider_ValueChanged" Maximum="20"/>
+				</StackPanel>
+			</GroupBox>
+
+			<GroupBox Header="Вращение" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Height="95" Width="200">
+				<StackPanel HorizontalAlignment="Center" Height="64" VerticalAlignment="Center" Width="180" Margin="4,10,4,-1">
+					<Slider x:Name="xRotationSlider" HorizontalAlignment="Center" VerticalAlignment="Top" Width="99" ValueChanged="ScaleSlider_ValueChanged" Maximum="360"/>
+					<Slider x:Name="yRotationSlider" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="99" ValueChanged="ScaleSlider_ValueChanged" Maximum="360"/>
+					<Slider x:Name="zRotationSlider" HorizontalAlignment="Center" VerticalAlignment="Top" Width="99" ValueChanged="ScaleSlider_ValueChanged" Maximum="360"/>
+				</StackPanel>
+			</GroupBox>
+
+			<GroupBox Header="Перенос" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Height="95" Width="200">
+				<StackPanel HorizontalAlignment="Center" Height="64" VerticalAlignment="Center" Width="180" Margin="4,10,4,-1">
+					<Slider x:Name="xTranslationSlider" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="99" ValueChanged="ScaleSlider_ValueChanged" Maximum="20" Minimum="-20"/>
+					<Slider x:Name="yTranslationSlider" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="99" ValueChanged="ScaleSlider_ValueChanged" Maximum="20" Minimum="-20"/>
+					<Slider x:Name="zTranslationSlider" HorizontalAlignment="Center" VerticalAlignment="Top" Width="99" ValueChanged="ScaleSlider_ValueChanged" Maximum="20" Minimum="-20"/>
+				</StackPanel>
+			</GroupBox>
+
+			<GroupBox Header="Проекция" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Height="95" Width="200">
+				<StackPanel HorizontalAlignment="Center" Height="64" VerticalAlignment="Center" Width="180" Margin="4,10,4,-1">
+					<RadioButton x:Name="cbOXY" Content="OXY" HorizontalAlignment="Center"  VerticalAlignment="Top" IsChecked="True"  Click="cb_Checked"/>
+					<RadioButton x:Name="cbOXZ" Content="OXZ" HorizontalAlignment="Center"  VerticalAlignment="Top" Click="cb_Checked"/>
+					<RadioButton x:Name="cbOYZ" Content="OYZ" HorizontalAlignment="Center"  VerticalAlignment="Top" Click="cb_Checked"/>
+				</StackPanel>
+			</GroupBox>
+
+			
+
+		</Grid>
+
+
+
+
+
+	</Grid>
+</Window>
